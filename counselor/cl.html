@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Counselor {background-color: tan;}
+#User {background-color: coral;}
+#Appointment {background-color: violet;}
+#Treatment {background-color: orange;}
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('Counselor', this, 'tan')">Counselor</button>
+<button class="tablink" onclick="openPage('User', this, 'coral')" id="defaultOpen">User</button>
+<button class="tablink" onclick="openPage('Appointment', this, 'violet')">Appointment</button>
+<button class="tablink" onclick="openPage('Treatment', this, 'orange')">Treatment</button>
+
+<div id="Counselor" class="tabcontent">
+  <h3>Counselor</h3>
+  <p>Counselor details</p>
+</div>
+
+<div id="User" class="tabcontent">
+  <h3>User</h3>
+  <p>User details</p> 
+</div>
+
+<div id="Appointment" class="tabcontent">
+  <h3>Appointment</h3>
+  <p>Appointment calender</p>
+</div>
+
+<div id="Treatment" class="tabcontent">
+  <h3>Treatment</h3>
+  <p>Treatment details</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
